@@ -10,4 +10,12 @@ Jei atsakoma ne (n), sekantis studentas nepridedamas ir programa toliau daro, k�
 Atsakius į pirmą klausimą "n", programa nuskaito duomenis iš failo "kursiokai.txt".   
 Faile yra studento vardas, pavardė, namų darbų pažymiai ir egzamino balas.  
 Programa viską nuskaito ir iškart apskaičiuoja galutini balą su mediana ir su vidurkiu.  
-Toliau programa išveda studento vardą, pavardę ir galutini balą su vidurkiu ir su mediana.
+Toliau programa išveda studento vardą, pavardę ir galutini balą su vidurkiu ir su mediana.  
+# Versija-0.3  
+Tai yra Versija0.2 isskirstyta papildomai i funkcija.cpp ir funkcijos.h failus.  
+funkcijos.h faile yra aprasytos funkcijos, kurios yra funkcija.cpp faile, taip pat aprašytos naudojamos bibliotekos.  
+funkcija.cpp faile yra visos funkcijos.  
+mainv3.cpp faile yra int main() funkcija.  
+## Paleidimas: 
+g++ -o test test5.cpp funkcija.cpp
+./test
