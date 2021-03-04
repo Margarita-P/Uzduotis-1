@@ -19,27 +19,49 @@ struct Studentas
 vector<Studentas> S;
 int sk = 0;
 int n = 0;
-//vector<int> grades;
-//int pazymys[11];
 double suma = 0;
 double egz = 0;
-vector<int> grade (0);
+vector<double> pazymiai;
+string yes = "t";
+string no = "n";
 
-int vidurkis()
+double vidurkis()
 {
 	double vid = ((suma / sk) * 0.4) + (egz * 0.6);
 	return vid;
 }
-int mediana()
+void BubbleSort(vector<double> &vektorius)
 {
-	double med = 0;
-	if (sk % 2 != 0)
+	for (int i = 0; i < sk; i++)
 	{
-		med = (grade.at(grade.size()/2) * 0.4) + (egz * 0.6);
+		for (int j = i + 1; j < sk; j++)
+		{
+			if (vektorius[i] > vektorius[j])
+			{
+				double t = vektorius[i];
+				vektorius[i] = vektorius[j];
+				vektorius[j] = t;
+			}
+		}
+	}
+}
+double mediana()
+{
+	BubbleSort(pazymiai);
+	double med = 0;
+
+	if (pazymiai.size() % 2 != 0)
+	{
+		med = (pazymiai.at(pazymiai.size() / 2) * 0.4) + (egz * 0.6);
+		
+	}
+	else if (pazymiai.size() % 2 == 0)
+	{
+		med = (((pazymiai.at(pazymiai.size() / 2) + pazymiai.at((pazymiai.size() / 2) - 1)) / 2) * 0.4) + (egz * 0.6);
 	}
 	return med;
 }
-int main()
+void ReadFromFile()
 {
 	ifstream in("kursiokai.txt");
 	string x;
@@ -52,34 +74,39 @@ int main()
 			sk = i - 2;
 			break;
 		}
-
-	}	
-	
+	}
 	for (int i = 0; !in.eof(); i++)
 	{
 		suma = 0;
 		S.push_back(Studentas());
 		in >> S[i].name;
 		in >> S[i].lastname;
-		//S[n].nd = 0;
-		grade.clear();
+		pazymiai.clear();
 		for (int j = 0; j < sk; j++)
 		{
-			in >> y;	
-			suma = suma + y;		
-			grade.push_back(y);
-		}	
+			in >> y;
+			suma = suma + y;
+			pazymiai.push_back(y);
+		}
 		in >> egz;
 		S[i].finalVid = vidurkis();
 		S[i].finalMed = mediana();
-		n++;
+		n = i;
 	}
-	delete &grade;
 	in.close();
+}
+int main()
+{
+	string answer1;
+	cout << "Ar norite patys irasyti duomenis (t), ar norite, kad jie butu paimti is failo? (n): ";
+	cin >> answer1;
+	if (answer1 == yes) cout << " lol" << endl;
+	else if (answer1 == no)
+	{
+		ReadFromFile();
+		for (int i = 0; i < n; i++)
+			cout << S[i].name << " " << S[i].lastname << " " << S[i].finalVid << " " << S[i].finalMed << endl;
+	}
 
-	for (int i = 0; i < n; i++)
-		cout << S[i].name << " " << S[i].lastname << " " << S[i].finalVid << " " << S[i].finalMed << endl;
-
-	cout << n;
-  return 0;
+	return 0;
 }
