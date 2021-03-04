@@ -95,18 +95,149 @@ void ReadFromFile()
 	}
 	in.close();
 }
+void ZinomasStudentuSK()
+{
+	string input1, input2, answer3, answer4, answer5;
+	int number3 = 0;
+	for (int i = 0; i < n; i++)
+	{
+		cout << "iveskite studento varda: ";
+		cin >> input1;
+		cout << "iveskite studento pavarde: ";
+		cin >> input2;
+		S.push_back(Studentas());
+		S[i].name = input1;
+		S[i].lastname = input2;
+		cout << "Ar norite patys ivesti namu darbu pazymius? (t/n): ";
+		cin >> answer3;
+		if (answer3 == yes)
+		{
+			cout << "Ar zinote kiek bus namu darbu pazymiu? (t/n): ";
+			cin >> answer4;
+			if (answer4 == yes)
+			{
+				cout << "Iveskite kiek bus namu darbu pazymiu: ";
+				cin >> sk;
+				int input3;
+				cout << "iveskite " << sk << " skacius: ";
+				pazymiai.clear();
+				suma = 0;
+				for (int i = 0; i < sk; i++)
+				{
+					cin >> input3;
+					suma = suma + input3;
+					pazymiai.push_back(input3);
+				}
+				cout << "Ar norite patys ivesti egzamino bala? (t/n): ";
+				cin >> answer5;
+				if (answer5 == yes)
+				{
+					cout << "Iveskite egzamino bala: ";
+					cin >> egz;
+				}
+				else if (answer5 == no)
+				{	
+					srand(time(NULL));
+					number3 = rand() % 10 + 1;
+					egz = number3;
+				}
+				S[i].finalVid = vidurkis();
+				S[i].finalMed = mediana();
+			}
+			else if (answer4 == no)
+			{
+				cout << "Veskite kiek norite namu darbu pazymiu, kai noriste baigti vesti, iveskite '0': ";
+				int enter = 1;
+				int i = 0;
+				pazymiai.clear();
+				suma = 0;
+				while (enter != 0)
+				{
+					cin >> enter;
+					suma = suma + enter;
+					pazymiai.push_back(enter);
+					i++;
+				}
+				cout << "Ar norite patys ivesti egzamino bala? (t/n): ";
+				cin >> answer5;
+				if (answer5 == yes)
+				{
+					cout << "Iveskite egzamino bala: ";
+					cin >> egz;
+				}
+				else if (answer5 == no)
+				{
+					srand(time(NULL));
+					number3 = rand() % 10 + 1;
+					egz = number3;
+				}
+				sk = i - 1;
+				S[i].finalVid = vidurkis();
+				S[i].finalMed = mediana();	
+			}
+		}
+		else if (answer3 == no)
+		{
+			cout << "Iveskite kiek bus namu darbu pazymiu: ";
+			cin >> sk;
+			srand(time(NULL));
+			int number6;
+			pazymiai.clear();
+			suma = 0;
+			for (int i = 0; i < sk; i++)
+			{
+				number6 = rand() % 10 + 1;
+				suma = suma + number6;
+				pazymiai.push_back(number6);
+			}
+			cout << "Ar norite patys ivesti egzamino bala? (t/n): ";
+			cin >> answer5;
+			if (answer5 == yes)
+			{
+				cout << "Iveskite egzamino bala: ";
+				cin >> egz;
+			}
+			else if (answer5 == no)
+			{
+				srand(time(NULL));
+				number3 = rand() % 10 + 1;
+				egz = number3;
+			}
+			S[i].finalVid = vidurkis();
+			S[i].finalMed = mediana();
+		}
+	}
+	
+
+}
 int main()
 {
-	string answer1;
+	string answer1, answer2;
 	cout << "Ar norite patys irasyti duomenis (t), ar norite, kad jie butu paimti is failo? (n): ";
 	cin >> answer1;
-	if (answer1 == yes) cout << " lol" << endl;
+	if (answer1 == yes)
+	{
+		cout << "Ar zinote kiek bus studentu? (t/n): ";
+		cin >> answer2;
+		if (answer2 == yes)
+		{
+			cout << "iveskite kiek bus studentu: ";
+			cin >> n;
+			ZinomasStudentuSK();			
+		}
+		else if (answer2 == no)
+		{
+			//NezinomasStudentuSK();
+			
+		}
+	}
 	else if (answer1 == no)
 	{
 		ReadFromFile();
-		for (int i = 0; i < n; i++)
-			cout << S[i].name << " " << S[i].lastname << " " << S[i].finalVid << " " << S[i].finalMed << endl;
 	}
+
+	for (int i = 0; i < n; i++)
+		cout << S[i].name << " " << S[i].lastname << " " << S[i].finalVid << " " << S[i].finalMed << endl;
 
 	return 0;
 }
