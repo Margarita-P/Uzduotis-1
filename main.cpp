@@ -10,7 +10,6 @@
 
 using namespace std;
 
-
 struct Studentas
 {
 	string name;
@@ -27,7 +26,15 @@ double egz = 0;
 vector<double> pazymiai;
 string yes = "t";
 string no = "n";
+double number;
 
+bool check(double number)
+{
+	if (number > 0 && number <= 10)
+		return true;
+	if (number < 0 || number > 10)
+		return false;		
+}
 double vidurkis()
 {
 	double vid = ((suma / sk) * 0.4) + (egz * 0.6);
@@ -96,6 +103,7 @@ void ReadFromFile()
 		S[i].finalMed = mediana();
 		n = i;
 	}
+	n = n + 1;
 	in.close();
 }
 void ZinomasStudentuSK()
@@ -128,6 +136,11 @@ void ZinomasStudentuSK()
 				for (int ii = 0; ii < sk; ii++)
 				{
 					cin >> input3;
+					if (check(input3) == false)
+					{
+						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
+						ZinomasStudentuSK();
+					}
 					suma = suma + input3;
 					pazymiai.push_back(input3);
 				}
@@ -137,6 +150,11 @@ void ZinomasStudentuSK()
 				{
 					cout << "Iveskite egzamino bala: ";
 					cin >> egz;
+					if (check(egz) == false)
+					{
+						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
+						ZinomasStudentuSK();
+					}
 				}
 				else if (answer5 == no)
 				{	
@@ -157,6 +175,11 @@ void ZinomasStudentuSK()
 				while (enter != 0)
 				{
 					cin >> enter;
+					if (check(enter) == false)
+					{
+						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
+						ZinomasStudentuSK();
+					}
 					suma = suma + enter;
 					pazymiai.push_back(enter);
 					i++;
@@ -167,6 +190,11 @@ void ZinomasStudentuSK()
 				{
 					cout << "Iveskite egzamino bala: ";
 					cin >> egz;
+					if (check(egz) == false)
+					{
+						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
+						ZinomasStudentuSK();
+					}
 				}
 				else if (answer5 == no)
 				{
@@ -199,6 +227,11 @@ void ZinomasStudentuSK()
 			{
 				cout << "Iveskite egzamino bala: ";
 				cin >> egz;
+				if (check(egz) == false)
+				{
+					cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
+					ZinomasStudentuSK();
+				}
 			}
 			else if (answer5 == no)
 			{
@@ -239,6 +272,11 @@ void NezinomasStudentuSK()
 				for (int i = 0; i < sk; i++)
 				{
 					cin >> input3;
+					if (check(input3) == false)
+					{
+						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
+						NezinomasStudentuSK();
+					}
 					suma = suma + input3;
 					pazymiai.push_back(input3);
 				}
@@ -248,6 +286,11 @@ void NezinomasStudentuSK()
 				{
 					cout << "Iveskite egzamino bala: ";
 					cin >> egz;
+					if (check(egz) == false)
+					{
+						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
+						NezinomasStudentuSK();
+					}
 				}
 				else if (answer5 == no)
 				{
@@ -268,6 +311,11 @@ void NezinomasStudentuSK()
 				while (enter != 0)
 				{
 					cin >> enter;
+					if (check(enter) == false)
+					{
+						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
+						NezinomasStudentuSK();
+					}
 					suma = suma + enter;
 					pazymiai.push_back(enter);
 					i++;
@@ -278,6 +326,11 @@ void NezinomasStudentuSK()
 				{
 					cout << "Iveskite egzamino bala: ";
 					cin >> egz;
+					if (check(egz) == false)
+					{
+						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
+						NezinomasStudentuSK();
+					}
 				}
 				else if (answer5 == no)
 				{
@@ -310,6 +363,11 @@ void NezinomasStudentuSK()
 			{
 				cout << "Iveskite egzamino bala: ";
 				cin >> egz;
+				if (check(egz) == false)
+				{
+					cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
+					NezinomasStudentuSK();
+				}
 			}
 			else if (answer5 == no)
 			{
@@ -373,10 +431,12 @@ int main()
 	else if (answer1 == no)
 	{
 		ReadFromFile();
-		cout << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(30) << setfill(' ')  << "Galutinis (vid)" << setw(20) << setfill(' ')  << "Galutinis (med)" << endl;
-		cout << "_____________________________________________________________________________" << endl;
+		ofstream fr("rez.txt");
+		fr << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(30) << setfill(' ')  << "Galutinis (vid)" << setw(20) << setfill(' ')  << "Galutinis (med)" << endl;
+		fr << "_____________________________________________________________________________" << endl;
 		for (int i = 0; i < n; i++)
-			cout << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(30) << setfill(' ') << setprecision(3) << S[i].finalVid << setw(20) << setfill(' ') << setprecision(3) << S[i].finalMed << endl;
+			fr << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(30) << setfill(' ') << setprecision(3) << S[i].finalVid << setw(20) << setfill(' ') << setprecision(3) << S[i].finalMed << endl;
+		fr.close();
 	}
 
 	return 0;
