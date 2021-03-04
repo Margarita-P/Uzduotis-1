@@ -1,4 +1,4 @@
-# Versija-0.2
+## Versija-0.2
 
 Tai Versijos 0.1 papildymas.  
 Atsakius į klausimą "Ar norite patys įvesti patys įvesti studento duomenis(t), ar norite, kad jie būtų nuskaityti iš failo (n)?: " t, programa darys viską ką daro Versija 0.1 ir dar galima papildomai pasirinkti ar iškart žinoma kiek bus studentų, ar ne.  
