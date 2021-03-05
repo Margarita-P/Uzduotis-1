@@ -17,5 +17,5 @@ funkcijos.h faile yra aprasytos funkcijos, kurios yra funkcija.cpp faile, taip p
 funkcija.cpp faile yra visos funkcijos.  
 mainv3.cpp faile yra int main() funkcija.  
 ### Paleidimas: 
-g++ -o test test5.cpp funkcija.cpp
+g++ -o test test5.cpp funkcija.cpp  
 ./test
