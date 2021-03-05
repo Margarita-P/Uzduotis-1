@@ -32,7 +32,7 @@ bool check(double number)
 {
 	if (number > 0 && number <= 10)
 		return true;
-	if (number < 0 || number > 10)
+	if (number <= 0 || number > 10)
 		return false;		
 }
 double vidurkis()
@@ -167,12 +167,12 @@ void ZinomasStudentuSK()
 			}
 			else if (answer4 == no)
 			{
-				cout << "Veskite kiek norite namu darbu pazymiu, kai noresite baigti vesti, iveskite '0': ";
+				cout << "Veskite kiek norite namu darbu pazymiu, kai noresite baigti vesti, iveskite '00': ";
 				int enter = 1;
 				int i = 0;
 				pazymiai.clear();
 				suma = 0;
-				while (enter != 0)
+				while (enter != 00)
 				{
 					cin >> enter;
 					if (check(enter) == false)
@@ -303,12 +303,12 @@ void NezinomasStudentuSK()
 			}
 			else if (answer4 == no)
 			{
-				cout << "Veskite kiek norite namu darbu pazymiu, kai noresite baigti vesti, iveskite '0': ";
+				cout << "Veskite kiek norite namu darbu pazymiu, kai noresite baigti vesti, iveskite '00': ";
 				int enter = 1;
 				int i = 0;
 				pazymiai.clear();
 				suma = 0;
-				while (enter != 0)
+				while (enter != 00)
 				{
 					cin >> enter;
 					if (check(enter) == false)
