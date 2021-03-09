@@ -32,7 +32,7 @@ bool check(double number)
 {
 	if (number > 0 && number <= 10)
 		return true;
-	if (number <= 0 || number > 10)
+	if (number < 0 || number > 10)
 		return false;		
 }
 double vidurkis()
@@ -51,6 +51,21 @@ void BubbleSort(vector<double> &vektorius)
 				double t = vektorius[i];
 				vektorius[i] = vektorius[j];
 				vektorius[j] = t;
+			}
+		}
+	}
+}
+void BubbleSort2()
+{
+	for (int i = 0; i < sk; i++)
+	{
+		for (int j = i + 1; j < sk; j++)
+		{
+			if (S[i].name > S[j].name)
+			{
+				string t1 = S[i].name;
+				S[i].name = S[j].name;
+				S[j].name  = t1;
 			}
 		}
 	}
@@ -392,6 +407,7 @@ void Print()
 	cin >> answer7;
 	if (answer7 == yes)
 	{
+		BubbleSort2();
 		cout << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(20) << setfill(' ') << "Galutinis (vid)" << endl;
 		cout << "______________________________________________" << endl;
 		for (int i = 0; i < n; i++)
@@ -399,6 +415,7 @@ void Print()
 	}
 	else if (answer7 == no)
 	{
+		BubbleSort2();
 		cout << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(20) << setfill(' ') << "Galutinis (med)" << endl;
 		cout << "______________________________________________" << endl;
 		for (int i = 0; i < n; i++)
@@ -431,6 +448,7 @@ int main()
 	else if (answer1 == no)
 	{
 		ReadFromFile();
+		BubbleSort2();
 		ofstream fr("rez.txt");
 		fr << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(30) << setfill(' ')  << "Galutinis (vid)" << setw(20) << setfill(' ')  << "Galutinis (med)" << endl;
 		fr << "_____________________________________________________________________________" << endl;
