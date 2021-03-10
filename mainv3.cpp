@@ -29,6 +29,7 @@ int main()
 	else if (answer1 == no)
 	{
 		ReadFromFile();
+		BubbleSort2();
 		ofstream fr("rez.txt");
 		fr << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(30) << setfill(' ') << "Galutinis (vid)" << setw(20) << setfill(' ') << "Galutinis (med)" << endl;
 		fr << "_____________________________________________________________________________" << endl;
