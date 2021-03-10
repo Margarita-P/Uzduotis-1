@@ -55,6 +55,21 @@ void BubbleSort(vector<double> &vektorius)
 		}
 	}
 }
+void BubbleSort2()
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = i + 1; j < n; j++)
+		{
+			if (S[i].name > S[j].name)
+			{
+				string t1 = S[i].name;
+				S[i].name = S[j].name;
+				S[j].name  = t1;
+			}
+		}
+	}
+}
 double mediana()
 {
 	BubbleSort(pazymiai);
@@ -167,12 +182,12 @@ void ZinomasStudentuSK()
 			}
 			else if (answer4 == no)
 			{
-				cout << "Veskite kiek norite namu darbu pazymiu, kai noresite baigti vesti, iveskite '0': ";
+				cout << "Veskite kiek norite namu darbu pazymiu, kai noresite baigti vesti, iveskite '00': ";
 				int enter = 1;
 				int i = 0;
 				pazymiai.clear();
 				suma = 0;
-				while (enter != 0)
+				while (enter != 00)
 				{
 					cin >> enter;
 					if (check(enter) == false)
@@ -303,12 +318,12 @@ void NezinomasStudentuSK()
 			}
 			else if (answer4 == no)
 			{
-				cout << "Veskite kiek norite namu darbu pazymiu, kai noresite baigti vesti, iveskite '0': ";
+				cout << "Veskite kiek norite namu darbu pazymiu, kai noresite baigti vesti, iveskite '00': ";
 				int enter = 1;
 				int i = 0;
 				pazymiai.clear();
 				suma = 0;
-				while (enter != 0)
+				while (enter != 00)
 				{
 					cin >> enter;
 					if (check(enter) == false)
@@ -392,6 +407,7 @@ void Print()
 	cin >> answer7;
 	if (answer7 == yes)
 	{
+		BubbleSort2();
 		cout << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(20) << setfill(' ') << "Galutinis (vid)" << endl;
 		cout << "______________________________________________" << endl;
 		for (int i = 0; i < n; i++)
@@ -399,6 +415,7 @@ void Print()
 	}
 	else if (answer7 == no)
 	{
+		BubbleSort2();
 		cout << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(20) << setfill(' ') << "Galutinis (med)" << endl;
 		cout << "______________________________________________" << endl;
 		for (int i = 0; i < n; i++)
@@ -431,6 +448,7 @@ int main()
 	else if (answer1 == no)
 	{
 		ReadFromFile();
+		BubbleSort2();
 		ofstream fr("rez.txt");
 		fr << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(30) << setfill(' ')  << "Galutinis (vid)" << setw(20) << setfill(' ')  << "Galutinis (med)" << endl;
 		fr << "_____________________________________________________________________________" << endl;
