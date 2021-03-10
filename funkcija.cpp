@@ -10,6 +10,21 @@ bool check(double number)
 	if (number <= 0 || number > 10)
 		return false;
 }
+void BubbleSort2()
+{
+	for (int i = 0; i < sk; i++)
+	{
+		for (int j = i + 1; j < sk; j++)
+		{
+			if (S[i].name > S[j].name)
+			{
+				string t1 = S[i].name;
+				S[i].name = S[j].name;
+				S[j].name  = t1;
+			}
+		}
+	}
+}
 double vidurkis()
 {
 	double vid = ((suma / sk) * 0.4) + (egz * 0.6);
@@ -363,6 +378,7 @@ void Print()
 	cin >> answer7;
 	if (answer7 == yes)
 	{
+		BubbleSort2();
 		cout << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(20) << setfill(' ') << "Galutinis (vid)" << endl;
 		cout << "______________________________________________" << endl;
 		for (int i = 0; i < n; i++)
@@ -370,6 +386,7 @@ void Print()
 	}
 	else if (answer7 == no)
 	{
+		BubbleSort2();
 		cout << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(20) << setfill(' ') << "Galutinis (med)" << endl;
 		cout << "______________________________________________" << endl;
 		for (int i = 0; i < n; i++)
