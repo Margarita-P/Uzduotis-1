@@ -57,9 +57,9 @@ void BubbleSort(vector<double> &vektorius)
 }
 void BubbleSort2()
 {
-	for (int i = 0; i < sk; i++)
+	for (int i = 0; i < n; i++)
 	{
-		for (int j = i + 1; j < sk; j++)
+		for (int j = i + 1; j < n; j++)
 		{
 			if (S[i].name > S[j].name)
 			{
