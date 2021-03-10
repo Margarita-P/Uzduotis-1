@@ -31,6 +31,7 @@ string no = "n";
 double number;
 
 bool check(double number);
+BubbleSort2();
 double vidurkis();
 double mediana();
 void ReadFromFile();
