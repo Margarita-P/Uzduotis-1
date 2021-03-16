@@ -1,4 +1,3 @@
-#include "funkcijos.h"
 #include "funkcija.cpp"
 
 using namespace std;
