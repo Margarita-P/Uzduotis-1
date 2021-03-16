@@ -7,23 +7,8 @@ bool check(double number)
 {
 	if (number > 0 && number <= 10)
 		return true;
-	if (number <= 0 || number > 10)
+	if (number <= -1 || number > 10)
 		return false;
-}
-void BubbleSort2()
-{
-	for (int i = 0; i < sk; i++)
-	{
-		for (int j = i + 1; j < sk; j++)
-		{
-			if (S[i].name > S[j].name)
-			{
-				string t1 = S[i].name;
-				S[i].name = S[j].name;
-				S[j].name  = t1;
-			}
-		}
-	}
 }
 double vidurkis()
 {
@@ -62,35 +47,46 @@ void ReadFromFile()
 	ifstream in("kursiokai.txt");
 	string x;
 	int y;
-	for (int i = 0; i < 1000; i++)
-	{
-		in >> x;
-		if (x == "Egz.")
+	try {
+		if (!in)
 		{
-			sk = i - 2;
-			break;
+			throw 1;
 		}
-	}
-	for (int i = 0; !in.eof(); i++)
-	{
-		suma = 0;
-		S.push_back(Studentas());
-		in >> S[i].name;
-		in >> S[i].lastname;
-		pazymiai.clear();
-		for (int j = 0; j < sk; j++)
+		for (int i = 0; i < 100; i++)
 		{
-			in >> y;
-			suma = suma + y;
-			pazymiai.push_back(y);
+			in >> x;
+			if (x == "Egz.")
+			{
+				sk = i - 2;
+				break;
+			}
 		}
-		in >> egz;
-		S[i].finalVid = vidurkis();
-		S[i].finalMed = mediana();
-		n = i;
+		for (int i = 0; !in.eof(); i++)
+		{
+			suma = 0;
+			S.push_back(Studentas());
+			in >> S[i].name;
+			in >> S[i].lastname;
+			pazymiai.clear();
+			for (int j = 0; j < sk; j++)
+			{
+				in >> y;
+				suma = suma + y;
+				pazymiai.push_back(y);
+			}
+			in >> egz;
+			S[i].finalVid = vidurkis();
+			S[i].finalMed = mediana();
+			n = i;
+		}
+		n = n + 1;
+		in.close();
 	}
-	n = n + 1;
-	in.close();
+	catch (int ex3)
+	{
+		cout << "failas nerastas" << endl;
+		exit;
+	}
 }
 void ZinomasStudentuSK()
 {
@@ -378,7 +374,6 @@ void Print()
 	cin >> answer7;
 	if (answer7 == yes)
 	{
-		BubbleSort2();
 		cout << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(20) << setfill(' ') << "Galutinis (vid)" << endl;
 		cout << "______________________________________________" << endl;
 		for (int i = 0; i < n; i++)
@@ -386,10 +381,54 @@ void Print()
 	}
 	else if (answer7 == no)
 	{
-		BubbleSort2();
 		cout << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(20) << setfill(' ') << "Galutinis (med)" << endl;
 		cout << "______________________________________________" << endl;
 		for (int i = 0; i < n; i++)
 			cout << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(20) << setfill(' ') << setprecision(3) << S[i].finalMed << endl;
+	}
+}
+void questions()
+{
+	string answer1, answer2;
+	cout << "Namu darbu ir egzamino pazymiai turi priklausyti intervalui [1;10]" << endl;
+	cout << "Ar norite patys irasyti duomenis (t), ar norite, kad jie butu paimti is failo? (n): ";
+	cin >> answer1;
+	if (answer1 == yes)
+	{
+		cout << "Ar zinote kiek bus studentu? (t/n): ";
+		cin >> answer2;
+		if (answer2 == yes)
+		{
+			cout << "iveskite kiek bus studentu: ";
+			cin >> n;
+			try
+			{
+				if (n <= 0)
+				{
+					throw 1;
+				}
+			}
+			catch (int ex1)
+			{
+				questions();
+			}
+			ZinomasStudentuSK();
+			Print();
+		}
+		else if (answer2 == no)
+		{
+			NezinomasStudentuSK();
+			Print();
+		}
+	}
+	else if (answer1 == no)
+	{
+		ReadFromFile();
+		ofstream fr("rez.txt");
+		fr << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(30) << setfill(' ') << "Galutinis (vid)" << setw(20) << setfill(' ') << "Galutinis (med)" << endl;
+		fr << "_____________________________________________________________________________" << endl;
+		for (int i = 0; i < n; i++)
+			fr << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(30) << setfill(' ') << setprecision(3) << S[i].finalVid << setw(20) << setfill(' ') << setprecision(3) << S[i].finalMed << endl;
+		fr.close();
 	}
 }
