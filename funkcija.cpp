@@ -364,7 +364,6 @@ void NezinomasStudentuSK()
 	cin >> answer6;
 	if (answer6 == yes)
 		NezinomasStudentuSK();
-
 }
 void Print()
 {
