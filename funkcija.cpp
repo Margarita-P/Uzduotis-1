@@ -1,5 +1,4 @@
 #include "funkcijos.h"
-#include <iostream>
 
 using namespace std;
 
@@ -84,7 +83,7 @@ void ReadFromFile()
 	}
 	catch (int ex3)
 	{
-		cout << "failas nerastas" << endl;
+		cout << "Duomenu failas nerastas" << endl;
 		exit;
 	}
 }
@@ -410,6 +409,7 @@ void questions()
 			}
 			catch (int ex1)
 			{
+				cout << "Ivedete netinkama studentu skaiciu (skaicius > 0), pabandykite is naujo " << endl;
 				questions();
 			}
 			ZinomasStudentuSK();
