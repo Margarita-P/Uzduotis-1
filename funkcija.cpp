@@ -406,14 +406,14 @@ void questions()
 				{
 					throw 1;
 				}
+			ZinomasStudentuSK();
+			Print();
 			}
 			catch (int ex1)
 			{
 				cout << "Ivedete netinkama studentu skaiciu (skaicius > 0), pabandykite is naujo " << endl;
 				questions();
 			}
-			ZinomasStudentuSK();
-			Print();
 		}
 		else if (answer2 == no)
 		{
