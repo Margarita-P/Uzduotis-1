@@ -86,6 +86,18 @@ void ReadFromFile()
 		cout << "Duomenu failas nerastas" << endl;
 		exit;
 	}
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = i + 1; j < n; j++)
+		{
+			if (S[i].name > S[j].name)
+			{
+				string t1 = S[i].name;
+				S[i].name = S[j].name;
+				S[j].name = t1;
+			}
+		}
+	}	
 }
 void ZinomasStudentuSK()
 {
