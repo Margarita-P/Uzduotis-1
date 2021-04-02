@@ -19,7 +19,6 @@ struct Studentas
 	double finalMed;
 };
 
-vector<Studentas> S;
 int sk = 0;
 int n = 0;
 double suma = 0;
@@ -71,8 +70,11 @@ double mediana()
 	}
 	return med;
 }
-void ReadFromFile()
+void ReadFromFile(vector<Studentas> S)
 {
+	S.clear();
+	S.resize(n);
+	n = 0;
 	ifstream in(FileName);
 	string x;
 	int y;
@@ -117,10 +119,11 @@ void ReadFromFile()
 		exit;
 	}
 }
-void ZinomasStudentuSK()
+void ZinomasStudentuSK(vector<Studentas> S)
 {
 	string input1, input2, answer3, answer4, answer5;
 	int number3 = 0;
+	S.clear();
 	for (int i = 0; i < n; i++)
 	{
 		cout << "iveskite studento varda: ";
@@ -150,7 +153,7 @@ void ZinomasStudentuSK()
 					if (check(input3) == false)
 					{
 						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-						ZinomasStudentuSK();
+						ZinomasStudentuSK(S);
 					}
 					suma = suma + input3;
 					pazymiai.push_back(input3);
@@ -164,7 +167,7 @@ void ZinomasStudentuSK()
 					if (check(egz) == false)
 					{
 						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-						ZinomasStudentuSK();
+						ZinomasStudentuSK(S);
 					}
 				}
 				else if (answer5 == no)
@@ -189,7 +192,7 @@ void ZinomasStudentuSK()
 					if (check(enter) == false)
 					{
 						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-						ZinomasStudentuSK();
+						ZinomasStudentuSK(S);
 					}
 					suma = suma + enter;
 					pazymiai.push_back(enter);
@@ -204,7 +207,7 @@ void ZinomasStudentuSK()
 					if (check(egz) == false)
 					{
 						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-						ZinomasStudentuSK();
+						ZinomasStudentuSK(S);
 					}
 				}
 				else if (answer5 == no)
@@ -241,7 +244,7 @@ void ZinomasStudentuSK()
 				if (check(egz) == false)
 				{
 					cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-					ZinomasStudentuSK();
+					ZinomasStudentuSK(S);
 				}
 			}
 			else if (answer5 == no)
@@ -255,10 +258,11 @@ void ZinomasStudentuSK()
 		}
 	}
 }
-void NezinomasStudentuSK()
+void NezinomasStudentuSK(vector<Studentas> S)
 {
 	string input1, input2, answer3, answer4, answer5, answer6;
 	int number3 = 0;
+	S.clear();
 	cout << "iveskite studento varda: ";
 	cin >> input1;
 	cout << "iveskite studento pavarde: ";
@@ -286,7 +290,7 @@ void NezinomasStudentuSK()
 				if (check(input3) == false)
 				{
 					cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-					NezinomasStudentuSK();
+					NezinomasStudentuSK(S);
 				}
 				suma = suma + input3;
 				pazymiai.push_back(input3);
@@ -300,7 +304,7 @@ void NezinomasStudentuSK()
 				if (check(egz) == false)
 				{
 					cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-					NezinomasStudentuSK();
+					NezinomasStudentuSK(S);
 				}
 			}
 			else if (answer5 == no)
@@ -325,7 +329,7 @@ void NezinomasStudentuSK()
 				if (check(enter) == false)
 				{
 					cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-					NezinomasStudentuSK();
+					NezinomasStudentuSK(S);
 				}
 				suma = suma + enter;
 				pazymiai.push_back(enter);
@@ -340,7 +344,7 @@ void NezinomasStudentuSK()
 				if (check(egz) == false)
 				{
 					cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-					NezinomasStudentuSK();
+					NezinomasStudentuSK(S);
 				}
 			}
 			else if (answer5 == no)
@@ -377,7 +381,7 @@ void NezinomasStudentuSK()
 			if (check(egz) == false)
 			{
 				cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-				NezinomasStudentuSK();
+				NezinomasStudentuSK(S);
 			}
 		}
 		else if (answer5 == no)
@@ -393,9 +397,9 @@ void NezinomasStudentuSK()
 	cout << "Ar norite prideti dar viena studenta? (t/n): ";
 	cin >> answer6;
 	if (answer6 == yes)
-		NezinomasStudentuSK();
+		NezinomasStudentuSK(S);
 }
-void Print()
+void Print(vector<Studentas> S)
 {
 	string answer7;
 	cout << "Ar norite su vidurkiu (t) ar su mediana (n) skaiciuoto galutinio balo?: ";
@@ -415,12 +419,13 @@ void Print()
 			cout << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(20) << setfill(' ') << setprecision(3) << S[i].finalMed << endl;
 	}
 }
-void CreateFile()
+void CreateFile(vector<Studentas> S)
 {
 	string v = "Vardas";
 	string p = "Pavarde";
 	string nd = "ND";
 	string e = "Egz.";
+	n = 0;
 	cout << "iveskite kiek bus studentu: ";
 	cin >> n;
 	cout << "iveskite kiek bus namu darbu pazymiu: ";
@@ -449,7 +454,7 @@ void CreateFile()
 	}
 	cout << "Sugeneruoti faila su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() << " ms" << endl;
 	out.close();
-}
+}/*
 void Print1()
 {
 	ReadFromFile();
@@ -469,10 +474,13 @@ void Print2()
 	for (int i = 0; i < n; i++)
 		out2 << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(30) << setfill(' ') << setprecision(3) << S[i].finalVid << endl;
 	out2.close();
-}
-void questions()
+}*/
+
+void questions(vector<Studentas> S)
 {
 	string answer1, answer2;
+	string galvotukai;
+	string vargsiukai;
 	int kint = 0;
 	cout << "Namu darbu ir egzamino pazymiai turi priklausyti intervalui [1;10]" << endl;
 	cout << "Ar norite patys irasyti duomenis (t), ar norite, kad jie butu paimti is failo (n), ar kad duomenu failai butu sugeneruoti? (k): ";
@@ -491,25 +499,25 @@ void questions()
 				{
 					throw 1;
 				}
-				ZinomasStudentuSK();
-				Print();
+				ZinomasStudentuSK(S);
+				Print(S);
 			}
 			catch (int ex1)
 			{
 				cout << "Ivedete netinkama studentu skaiciu (skaicius > 0), pabandykite is naujo " << endl;
-				questions();
+				questions(S);
 			}
 		}
 		else if (answer2 == no)
 		{
-			NezinomasStudentuSK();
-			Print();
+			NezinomasStudentuSK(S);
+			Print(S);
 		}
 	}
 	else if (answer1 == no)
 	{
 		FileName = "kursiokai.txt";
-		ReadFromFile();
+		ReadFromFile(S);
 		ofstream fr("rez.txt");
 		fr << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(30) << setfill(' ') << "Galutinis (vid)" << setw(20) << setfill(' ') << "Galutinis (med)" << endl;
 		fr << "_____________________________________________________________________________" << endl;
@@ -523,34 +531,47 @@ void questions()
 		cin >> kint;
 		for (int i = 0; i < kint; i++)
 		{
-			CreateFile();
-			ReadFromFile();
-		}
-		for (int i = 0; i < n; i++)
-		{
-			if (S[i].finalVid >= 5)
+			CreateFile(S);
+			auto start1 = chrono::steady_clock::now();
+			ReadFromFile(S);
+			cout << "Nuskaityti faila su " << n-1 << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start1).count() << " ms" << endl;
+			for (int i = 0; i < n; i++)
 			{
-				ofstream out1("Galvotukai.txt");
-				out1 << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(30) << setfill(' ') << "Galutinis (vid)" << endl;
-				out1 << "_____________________________________________________________________________" << endl;
-				for (int i = 0; i < n; i++)
-					out1 << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(30) << setfill(' ') << setprecision(3) << S[i].finalVid << endl;
-				out1.close();
+				if (S[i].finalVid > 5)
+				{
+					ofstream out1("Galvociai.txt");
+					out1 << S[i].finalVid << endl;
+				}
 			}
-			else if (S[i].finalVid < 5 && S[i].finalVid > 0)
+			
+			
+			/*for (int i = 0; i < n; i++)
 			{
-				ofstream out2("Vargsiukai.txt");
-				out2 << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(30) << setfill(' ') << "Galutinis (vid)" << endl;
-				out2 << "_____________________________________________________________________________" << endl;
-				for (int i = 0; i < n; i++)
-					out2 << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(30) << setfill(' ') << setprecision(3) << S[i].finalVid << endl;
-				out2.close();
-			}
-		}
+				if (S[i].finalVid > 5)
+				{
+					ofstream out1("Galvotukai.txt");
+					out1 << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(30) << setfill(' ') << "Galutinis (vid)" << endl;
+					out1 << "_____________________________________________________________________________" << endl;
+					for (int i = 0; i < n; i++)
+						out1 << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(30) << setfill(' ') << setprecision(3) << S[i].finalVid << endl;
+					out1.close();
+				}
+				else if (S[i].finalVid <= 5)
+				{
+					ofstream out2("Vargsiukai.txt");
+					out2 << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(30) << setfill(' ') << "Galutinis (vid)" << endl;
+					out2 << "_____________________________________________________________________________" << endl;
+					for (int i = 0; i < n; i++)
+						out2 << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(30) << setfill(' ') << setprecision(3) << S[i].finalVid << endl;
+					out2.close();
+				}
+			}	*/		
+		}		
 	}
 }
 int main()
 {
-	questions();
+	vector<Studentas> S;
+	questions(S);
 	return 0;
 }
