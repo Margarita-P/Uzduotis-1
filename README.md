@@ -26,5 +26,5 @@ Tuo met klausiama vartotojo kiek jis norėtų sugeneruoti failų, įvedamas skai
 Tada vartotojas įveda pirmo failo studentų skaičių ir namų darbų skaičių.  
 Tada programa išveda kiek užtruko sukurti šį studentų failą, kiek užtruko sukurto failo nuskaitymas, kiek užtruko studentų rūšiavimas į "Galvotukus" ir "Vargsiukus" ir kiek užtruko studentų duomenų išvedimas į "Galvotukus.txt" ir "Vargsiukus.txt".  
 ### Paleidimas:
-g++ -o test mainv4.cpp funkcijos4.cpp
+g++ -o test mainv4.cpp funkcijos4.cpp  
 ./test
