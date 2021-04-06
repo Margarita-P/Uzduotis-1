@@ -18,4 +18,13 @@ funkcija.cpp faile yra visos funkcijos.
 mainv3.cpp faile yra int main() funkcija.  
 ### Paleidimas: 
 g++ -o test test5.cpp funkcija.cpp  
+./test  
+# Versija-0.4  
+Versija-0.4 turi papildomą funkciją - sugeneruoti studentų failus, juos nuskaityti, ir suskaičiavus galutinį balą su vidurkiu išskirstyti studentus į du atskirus failus: "Galvotukus.txt" ir "Vargsiukus.txt".  
+Norint paleisti naują funkciją, į patį pirmą klausimą  "Ar norite patys irasyti duomenis (t), ar norite, kad jie butu paimti is failo (n), ar kad duomenu failai butu sugeneruoti? (k): " reikia atsakyti "k".  
+Tuo met klausiama vartotojo kiek jis norėtų sugeneruoti failų, įvedamas skaičius turi priklausyti intervalui [1;5].  
+Tada vartotojas įveda pirmo failo studentų skaičių ir namų darbų skaičių.  
+Tada programa išveda kiek užtruko sukurti šį studentų failą, kiek užtruko sukurto failo nuskaitymas, kiek užtruko studentų rūšiavimas į "Galvotukus" ir "Vargsiukus" ir kiek užtruko studentų duomenų išvedimas į "Galvotukus.txt" ir "Vargsiukus.txt".  
+### Paleidimas:
+g++ -o test mainv4.cpp funkcijos4.cpp
 ./test
