@@ -545,6 +545,7 @@ void questions()
 			}
 			out4.close();
 			out5.close();
+			cout << "Atskirti studentus i Galvotukus ir Vargsiukus uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start2).count() << " ms" << endl;
 			cout << "Sukurti Galvotukai.txt ir Vargsiukai.txt failus is " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start2).count() << " ms" << endl;
 		}			
 	}
