@@ -30,22 +30,21 @@ double egz = 0;
 string yes = "t";
 string no = "n";
 string ka = "k";
-double number;
+double number = 0;
 double number5 = 0;
 string FileName;
+vector <double> pazymiai;
 
 bool check(double number);
 double vidurkis();
 template <class T>
-double mediana(T& pazymiai);
+double mediana();
 template <class T>
-void ReadFromFile(T& S,T& pazymiai);
+void ReadFromFile(T& S);
 template <class T>
-void ZinomasStudentuSK(T& S, T& pazymiai);
+void ZinomasStudentuSK(T& S);
 template <class T>
-void NezinomasStudentuSK(T& S, T& pazymiai);
+void NezinomasStudentuSK(T& S);
 template <class T>
 void Print(T& S);
 void CreateFile();
-template <class T>
-void questions(T S, T pazymiai);
