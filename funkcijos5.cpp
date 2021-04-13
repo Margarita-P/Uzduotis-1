@@ -14,8 +14,7 @@ double vidurkis()
 	double vid = ((suma / sk) * 0.4) + (egz * 0.6);
 	return vid;
 }
-template <class T>
-double mediana(T& pazymiai)
+double mediana()
 {
 	for (int i = 0; i < sk; i++)
 	{
@@ -43,7 +42,7 @@ double mediana(T& pazymiai)
 	return med;
 }
 template <class T>
-void ReadFromFile(T& S, T& pazymiai)
+void ReadFromFile(T& S)
 {
 	S.clear();
 	n = 0;
@@ -88,7 +87,7 @@ void ReadFromFile(T& S, T& pazymiai)
 				S[i].kintamasis1 = 0;
 			}
 			S[i].finalVid = vidurkis();
-			S[i].finalMed = mediana(pazymiai);
+			S[i].finalMed = mediana();
 			n = i;
 		}
 		in.close();
@@ -100,7 +99,7 @@ void ReadFromFile(T& S, T& pazymiai)
 	}
 }
 template <class T>
-void ZinomasStudentuSK(T& S, T& pazymiai)
+void ZinomasStudentuSK(T& S)
 {
 	string input1, input2, answer3, answer4, answer5;
 	int number3 = 0;
@@ -134,7 +133,7 @@ void ZinomasStudentuSK(T& S, T& pazymiai)
 					if (check(input3) == false)
 					{
 						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-						ZinomasStudentuSK(S, pazymiai);
+						ZinomasStudentuSK(S);
 					}
 					suma = suma + input3;
 					pazymiai.push_back(input3);
@@ -148,7 +147,7 @@ void ZinomasStudentuSK(T& S, T& pazymiai)
 					if (check(egz) == false)
 					{
 						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-						ZinomasStudentuSK(S, pazymiai);
+						ZinomasStudentuSK(S);
 					}
 				}
 				else if (answer5 == no)
@@ -158,7 +157,7 @@ void ZinomasStudentuSK(T& S, T& pazymiai)
 					egz = number3;
 				}
 				S[i].finalVid = vidurkis();
-				S[i].finalMed = mediana(pazymiai);
+				S[i].finalMed = mediana();
 			}
 			else if (answer4 == no)
 			{
@@ -173,7 +172,7 @@ void ZinomasStudentuSK(T& S, T& pazymiai)
 					if (check(enter) == false)
 					{
 						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-						ZinomasStudentuSK(S, pazymiai);
+						ZinomasStudentuSK(S);
 					}
 					suma = suma + enter;
 					pazymiai.push_back(enter);
@@ -188,7 +187,7 @@ void ZinomasStudentuSK(T& S, T& pazymiai)
 					if (check(egz) == false)
 					{
 						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-						ZinomasStudentuSK(S, pazymiai);
+						ZinomasStudentuSK(S);
 					}
 				}
 				else if (answer5 == no)
@@ -199,7 +198,7 @@ void ZinomasStudentuSK(T& S, T& pazymiai)
 				}
 				sk = i - 1;
 				S[i].finalVid = vidurkis();
-				S[i].finalMed = mediana(pazymiai);
+				S[i].finalMed = mediana();
 			}
 		}
 		else if (answer3 == no)
@@ -225,7 +224,7 @@ void ZinomasStudentuSK(T& S, T& pazymiai)
 				if (check(egz) == false)
 				{
 					cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-					ZinomasStudentuSK(S, pazymiai);
+					ZinomasStudentuSK(S);
 				}
 			}
 			else if (answer5 == no)
@@ -235,12 +234,12 @@ void ZinomasStudentuSK(T& S, T& pazymiai)
 				egz = number3;
 			}
 			S[i].finalVid = vidurkis();
-			S[i].finalMed = mediana(pazymiai);
+			S[i].finalMed = mediana();
 		}
 	}
 }
 template <class T>
-void NezinomasStudentuSK(T& S, T& pazymiai)
+void NezinomasStudentuSK(T& S)
 {
 	string input1, input2, answer3, answer4, answer5, answer6;
 	int number3 = 0;
@@ -272,7 +271,7 @@ void NezinomasStudentuSK(T& S, T& pazymiai)
 				if (check(input3) == false)
 				{
 					cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-					NezinomasStudentuSK(S, pazymiai);
+					NezinomasStudentuSK(S);
 				}
 				suma = suma + input3;
 				pazymiai.push_back(input3);
@@ -286,7 +285,7 @@ void NezinomasStudentuSK(T& S, T& pazymiai)
 				if (check(egz) == false)
 				{
 					cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-					NezinomasStudentuSK(S, pazymiai);
+					NezinomasStudentuSK(S);
 				}
 			}
 			else if (answer5 == no)
@@ -296,7 +295,7 @@ void NezinomasStudentuSK(T& S, T& pazymiai)
 				egz = number3;
 			}
 			S[n].finalVid = vidurkis();
-			S[n].finalMed = mediana(pazymiai);
+			S[n].finalMed = mediana();
 		}
 		else if (answer4 == no)
 		{
@@ -311,7 +310,7 @@ void NezinomasStudentuSK(T& S, T& pazymiai)
 				if (check(enter) == false)
 				{
 					cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-					NezinomasStudentuSK(S, pazymiai);
+					NezinomasStudentuSK(S);
 				}
 				suma = suma + enter;
 				pazymiai.push_back(enter);
@@ -326,7 +325,7 @@ void NezinomasStudentuSK(T& S, T& pazymiai)
 				if (check(egz) == false)
 				{
 					cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-					NezinomasStudentuSK(S, pazymiai);
+					NezinomasStudentuSK(S);
 				}
 			}
 			else if (answer5 == no)
@@ -337,7 +336,7 @@ void NezinomasStudentuSK(T& S, T& pazymiai)
 			}
 			sk = i - 1;
 			S[n].finalVid = vidurkis();
-			S[n].finalMed = mediana(pazymiai);
+			S[n].finalMed = mediana();
 		}
 	}
 	else if (answer3 == no)
@@ -363,7 +362,7 @@ void NezinomasStudentuSK(T& S, T& pazymiai)
 			if (check(egz) == false)
 			{
 				cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-				NezinomasStudentuSK(S, pazymiai);
+				NezinomasStudentuSK(S);
 			}
 		}
 		else if (answer5 == no)
@@ -373,13 +372,13 @@ void NezinomasStudentuSK(T& S, T& pazymiai)
 			egz = number3;
 		}
 		S[n].finalVid = vidurkis();
-		S[n].finalMed = mediana(pazymiai);
+		S[n].finalMed = mediana();
 	}
 	n++;
 	cout << "Ar norite prideti dar viena studenta? (t/n): ";
 	cin >> answer6;
 	if (answer6 == yes)
-		NezinomasStudentuSK(S, pazymiai);
+		NezinomasStudentuSK(S);
 }
 template <class T>
 void Print(T& S)
