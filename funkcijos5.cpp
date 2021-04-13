@@ -1,4 +1,4 @@
-#include "funkcija4.h"
+#include "funkcija5.h"
 
 using namespace std;
 
