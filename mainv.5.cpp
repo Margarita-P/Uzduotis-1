@@ -105,11 +105,46 @@ int main()
 			cin >> answer1;
 			if (answer1 == yes)
 			{
-				cout << "Ne" << endl;
+				cout << "Ar zinote kiek bus studentu? (t/n): ";
+				cin >> answer2;
+				if (answer2 == yes)
+				{
+					cout << "iveskite kiek bus studentu: ";
+					cin >> n;
+					try
+					{
+						if (n <= 0)
+						{
+							throw 1;
+						}
+						ZinomasStudentuSK(S);
+						Print(S);
+					}
+					catch (int ex1)
+					{
+						cout << "Ivedete netinkama studentu skaiciu (skaicius > 0), paleiskite programa is naujo " << endl;
+						exit;
+					}
+				}
+				else if (answer2 == no)
+				{
+					NezinomasStudentuSK(S);
+					Print(S);
+				}
 			}
 			else if (answer1 == no)
 			{
-				cout << "Ne" << endl;
+				FileName = "kursiokai.txt";
+				ReadFromFile(S);
+				ofstream fr("rez.txt");
+				fr << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(30) << setfill(' ') << "Galutinis (vid)" << setw(20) << setfill(' ') << "Galutinis (med)" << endl;
+				fr << "_____________________________________________________________________________" << endl;
+				for (int i = 0; i < n; i++)
+				{
+					fr << S.front().name << setw(20) << setfill(' ') << S.front().lastname << setw(30) << setfill(' ') << setprecision(3) << S.front().finalVid << setw(20) << setfill(' ') << setprecision(3) << S.front().finalMed << setw(30) << setfill(' ') << S.front().kintamasis1 << endl;
+					S.pop_front();
+				}
+				fr.close();
 			}
 			else if (answer1 == ka)
 			{
@@ -132,7 +167,6 @@ int main()
 					cout << n << endl;
 					for (int j = 0; j < n; j++)
 					{
-						//cout << S.back().name << setw(20) << setfill(' ') << S.back().lastname << endl;
 						if (S.front().kintamasis1 == 1)
 						{
 							out4 << S.front().name << setw(20) << setfill(' ') << S.front().lastname << setw(30) << setfill(' ') << setprecision(3) << S.front().finalVid << endl;
