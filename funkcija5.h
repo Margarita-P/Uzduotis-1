@@ -42,6 +42,8 @@ double mediana();
 template <class T>
 void ReadFromFile(T& S);
 template <class T>
+void ReadFromFile1(T& S);
+template <class T>
 void ZinomasStudentuSK(T& S);
 template <class T>
 void NezinomasStudentuSK(T& S);
