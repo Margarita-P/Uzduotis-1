@@ -77,7 +77,7 @@ void ReadFromFile(T& S)
 				pazymiai.push_back(y);
 			}
 			in >> egz;
-			int kint3 = vidurkis();
+			double kint3 = vidurkis();
 			if (kint3 > 5 || kint3 == 5)
 			{
 				S[i].kintamasis1 = 1;
@@ -89,6 +89,65 @@ void ReadFromFile(T& S)
 			S[i].finalVid = vidurkis();
 			S[i].finalMed = mediana();
 			n = i;
+		}
+		in.close();
+	}
+	catch (int ex3)
+	{
+		cout << "Duomenu failas nerastas" << endl;
+		exit;
+	}
+}
+template <class T>
+void ReadFromFile1(T& S)
+{
+	Studentas Student;
+	n = 0;
+	ifstream in(FileName);
+	string x;
+	int y;
+	string a, b;
+	try {
+		if (!in)
+		{
+			throw 1;
+		}
+		for (int i = 0; i < 100; i++)
+		{
+			in >> x;
+			if (x == "Egz.")
+			{
+				sk = i - 2;
+				break;
+			}
+		}
+		for (int i = 0; !in.eof(); i++)
+		{
+			///Studentas Student;
+			in >> Student.name;
+			in >> Student.lastname;
+			suma = 0;
+			pazymiai.clear();
+			for (int j = 0; j < sk; j++)
+			{
+				in >> y;
+				suma = suma + y;
+				pazymiai.push_back(y);
+			}
+			in >> egz;
+			double kint3 = vidurkis();
+			if (kint3 > 5 || kint3 == 5)
+			{
+				Student.kintamasis1 = 1;
+			}
+			else if (kint3 < 5)
+			{
+				Student.kintamasis1 = 0;
+			}
+			Student.finalVid = vidurkis();
+			Student.finalMed = mediana();
+			n = i;
+			S.push_back(Student);
 		}
 		in.close();
 	}
