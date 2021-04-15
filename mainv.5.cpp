@@ -1,11 +1,11 @@
-#include "funkcijos5.cpp"
+#include "funkcijos4.cpp"
 
 int main()
 {
 	int conteiner;
 	string answer1, answer2;
-			string galvotukai;
-			string vargsiukai;
+	string galvotukai;
+	string vargsiukai;
 	cout << "Pasirinkite konteineri: (vector - 1, list - 2, deque - 3)";
 	cin >> conteiner;
 	try
@@ -95,13 +95,60 @@ int main()
 					cout << "Sukurti Galvotukai.txt ir Vargsiukai.txt failus is " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start1).count() << " ms" << endl;
 				}
 			}
-			
 		}
 		else if (conteiner == 2)
 		{
 			list <Studentas> S;
-			//pataisyti
-			
+			int kint;
+			cout << "Namu darbu ir egzamino pazymiai turi priklausyti intervalui [1;10]" << endl;
+			cout << "Ar norite patys irasyti duomenis (t), ar norite, kad jie butu paimti is failo (n), ar kad duomenu failai butu sugeneruoti? (k): ";
+			cin >> answer1;
+			if (answer1 == yes)
+			{
+				cout << "Ne" << endl;
+			}
+			else if (answer1 == no)
+			{
+				cout << "Ne" << endl;
+			}
+			else if (answer1 == ka)
+			{
+				cout << "Kiek failu norite sugeneruoti? (nuo 1 iki 5): ";
+				cin >> kint;
+				for (int i = 0; i < kint; i++)
+				{
+					Studentas temporary;
+					CreateFile();
+					vargsiukai = "vargsiukai" + to_string(n);
+					vargsiukai += ".txt";
+					galvotukai = "galvotukai" + to_string(n);
+					galvotukai += ".txt";
+					ofstream out4(galvotukai);
+					ofstream out5(vargsiukai);
+					auto start = chrono::steady_clock::now();
+					ReadFromFile1(S);
+					cout << "Nuskaityti faila su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() << " ms" << endl;
+					auto start1 = chrono::steady_clock::now();
+					cout << n << endl;
+					for (int j = 0; j < n; j++)
+					{
+						//cout << S.back().name << setw(20) << setfill(' ') << S.back().lastname << endl;
+						if (S.front().kintamasis1 == 1)
+						{
+							out4 << S.front().name << setw(20) << setfill(' ') << S.front().lastname << setw(30) << setfill(' ') << setprecision(3) << S.front().finalVid << endl;
+						}
+						else if (S.front().kintamasis1 == 0)
+						{
+							out5 << S.front().name << setw(20) << setfill(' ') << S.front().lastname << setw(30) << setfill(' ') << setprecision(3) << S.front().finalVid << endl;
+						}
+						S.pop_front();
+					}
+					out4.close();
+					out5.close();
+					cout << "Atskirti studentus i Galvotukus ir Vargsiukus uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start1).count() << " ms" << endl;
+					cout << "Sukurti Galvotukai.txt ir Vargsiukai.txt failus is " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start1).count() << " ms" << endl;
+				}
+			}
 		}
 		else if (conteiner == 3)
 		{
