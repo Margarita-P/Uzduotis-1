@@ -1,4 +1,4 @@
-#include "funkcijos4.cpp"
+#include "funkcijos5.cpp"
 
 int main()
 {
