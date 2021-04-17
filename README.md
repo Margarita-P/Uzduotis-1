@@ -41,5 +41,7 @@ RAM - 16GB
 ## Duomenų nuskaitymas    
 ![image](https://user-images.githubusercontent.com/79039786/115105287-a80f7d00-9f66-11eb-858b-4530483d845e.png)  
 ## Duomenų išvedimas  
-![image](https://user-images.githubusercontent.com/79039786/115105304-c6757880-9f66-11eb-9a97-8f84fb83525d.png)
+![image](https://user-images.githubusercontent.com/79039786/115105304-c6757880-9f66-11eb-9a97-8f84fb83525d.png)  
+# Išvados  
+List konteineris greičiausiai nuskaito duomenis iš failo ir išveda duomenis į "Vargašiukų" ir "Galvočių" failus. Antras, deque konteineris, o lėčiausiai veiksmus atlieka vector konteineris.
 
