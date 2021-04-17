@@ -10,4 +10,21 @@ Jei atsakoma ne (n), sekantis studentas nepridedamas ir programa toliau daro, k�
 Atsakius į pirmą klausimą "n", programa nuskaito duomenis iš failo "kursiokai.txt".   
 Faile yra studento vardas, pavardė, namų darbų pažymiai ir egzamino balas.  
 Programa viską nuskaito ir iškart apskaičiuoja galutini balą su mediana ir su vidurkiu.  
-Toliau programa išveda studento vardą, pavardę ir galutini balą su vidurkiu ir su mediana.
+Toliau programa išveda studento vardą, pavardę ir galutini balą su vidurkiu ir su mediana.  
+# Versija-0.5  
+Versija 0.5 yra versijos 0.4 patobulinimas, kad veiktų programa su skirtingais konteineriais - vector, list ir deque.  
+Vartotojas, paleidęs programą, turi pasirinkti, kurį konteinerį naudos (vector - 1, list - 2, deque - 3).  
+## Spartos Analizė  
+Buvo tikrinama sparta su trim skirtingais konteineriais - vector, list ir deque. Kiekvieną karta buvo pasirenkami 9 namų darbai ir 1 egzaminas.  
+### Kompiuterio parametrai:  
+CPU - intel core i7  
+RAM - 16GB  
+64 bit operating system    
+  
+## Duomenų nuskaitymas    
+![image](https://user-images.githubusercontent.com/79039786/115105287-a80f7d00-9f66-11eb-858b-4530483d845e.png)  
+## Duomenų išvedimas  
+![image](https://user-images.githubusercontent.com/79039786/115105304-c6757880-9f66-11eb-9a97-8f84fb83525d.png)  
+# Išvados  
+List konteineris greičiausiai nuskaito duomenis iš failo ir išveda duomenis į "Vargašiukų" ir "Galvočių" failus. Antras, deque konteineris, o lėčiausiai veiksmus atlieka vector konteineris.
+
