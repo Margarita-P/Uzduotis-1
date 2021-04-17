@@ -33,7 +33,7 @@ Versija 0.5 yra versijos 0.4 patobulinimas, kad veiktų programa su skirtingais 
 Vartotojas, paleidęs programą, turi pasirinkti, kurį konteinerį naudos (vector - 1, list - 2, deque - 3).  
 ## Spartos Analizė  
 Buvo tikrinama sparta su trim skirtingais konteineriais - vector, list ir deque. Kiekvieną karta buvo pasirenkami 9 namų darbai ir 1 egzaminas.  
-# Kompiuterio parametrai:  
+### Kompiuterio parametrai:  
 CPU - intel core i7  
 RAM - 16GB  
 64 bit operating system    
