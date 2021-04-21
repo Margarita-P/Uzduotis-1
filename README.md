@@ -19,7 +19,7 @@ Buvo tikrinama sparta su trim skirtingais konteineriais - vector, list ir deque.
 ### Kompiuterio parametrai:  
 CPU - intel core i7  
 RAM - 16GB  
-64 bit operating system    
+HDD - 469 GB     
   
 ## Duomenų nuskaitymas    
 ![image](https://user-images.githubusercontent.com/79039786/115105287-a80f7d00-9f66-11eb-858b-4530483d845e.png)  
