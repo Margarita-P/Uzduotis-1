@@ -15,16 +15,17 @@ Toliau programa išveda studento vardą, pavardę ir galutini balą su vidurkiu 
 Versija 0.5 yra versijos 0.4 patobulinimas, kad veiktų programa su skirtingais konteineriais - vector, list ir deque.  
 Vartotojas, paleidęs programą, turi pasirinkti, kurį konteinerį naudos (vector - 1, list - 2, deque - 3).  
 ## Spartos Analizė  
-Buvo tikrinama sparta su trim skirtingais konteineriais - vector, list ir deque. Kiekvieną karta buvo pasirenkami 9 namų darbai ir 1 egzaminas.  
+Buvo tikrinama sparta su trim skirtingais konteineriais - vector, list ir deque.  
+Tikrinimui buvo naudojami tie patys į failai: 100 studentų, 1000 studentų, 10000 studentų, 100000 studentų, 1000000 studentų (visi failai turėjo 9 namų darbus).   
 ### Kompiuterio parametrai:  
 CPU - intel core i7  
 RAM - 16GB  
-HDD - 469 GB     
+HDD - 469 GB  
   
 ## Duomenų nuskaitymas    
-![image](https://user-images.githubusercontent.com/79039786/115105287-a80f7d00-9f66-11eb-858b-4530483d845e.png)  
+![image](https://user-images.githubusercontent.com/79039786/115520727-20da4600-a293-11eb-88f5-a1b8c0bc56f5.png)  
 ## Duomenų išvedimas  
-![image](https://user-images.githubusercontent.com/79039786/115105304-c6757880-9f66-11eb-9a97-8f84fb83525d.png)  
+![image](https://user-images.githubusercontent.com/79039786/115520656-0c964900-a293-11eb-9866-c99296bed45a.png)  
 # Išvados  
 List konteineris greičiausiai nuskaito duomenis iš failo ir išveda duomenis į "Vargašiukų" ir "Galvočių" failus. Antras, deque konteineris, o lėčiausiai veiksmus atlieka vector konteineris.
 
