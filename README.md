@@ -18,6 +18,15 @@ mainv3.cpp faile yra int main() funkcija.
 ### Paleidimas: 
 g++ -o test test5.cpp funkcija.cpp  
 ./test  
+# Versija-0.4  
+Versija-0.4 turi papildomą funkciją - sugeneruoti studentų failus, juos nuskaityti, ir suskaičiavus galutinį balą su vidurkiu išskirstyti studentus į du atskirus failus: "Galvotukus.txt" ir "Vargsiukus.txt".  
+Norint paleisti naują funkciją, į patį pirmą klausimą  "Ar norite patys irasyti duomenis (t), ar norite, kad jie butu paimti is failo (n), ar kad duomenu failai butu sugeneruoti? (k): " reikia atsakyti "k".  
+Tuo met klausiama vartotojo kiek jis norėtų sugeneruoti failų, įvedamas skaičius turi priklausyti intervalui [1;5].  
+Tada vartotojas įveda pirmo failo studentų skaičių ir namų darbų skaičių.  
+Tada programa išveda kiek užtruko sukurti šį studentų failą, kiek užtruko sukurto failo nuskaitymas, kiek užtruko studentų rūšiavimas į "Galvotukus" ir "Vargsiukus" ir kiek užtruko studentų duomenų išvedimas į "Galvotukus.txt" ir "Vargsiukus.txt".  
+### Paleidimas:
+g++ -o test mainv4.cpp funkcijos4.cpp  
+./test  
 # Versija-0.5  
 Versija 0.5 yra versijos 0.4 patobulinimas, kad veiktų programa su skirtingais konteineriais - vector, list ir deque.  
 Vartotojas, paleidęs programą, turi pasirinkti, kurį konteinerį naudos (vector - 1, list - 2, deque - 3).  
@@ -27,10 +36,12 @@ Tikrinimui buvo naudojami tie patys į failai: 100 studentų, 1000 studentų, 10
 ### Kompiuterio parametrai:  
 CPU - intel core i7  
 RAM - 16GB  
+HDD - 469 GB  
 HDD - 469 GB    
 ## Duomenų nuskaitymas    
 ![image](https://user-images.githubusercontent.com/79039786/115520727-20da4600-a293-11eb-88f5-a1b8c0bc56f5.png)  
 ## Duomenų išvedimas  
 ![image](https://user-images.githubusercontent.com/79039786/115520656-0c964900-a293-11eb-9866-c99296bed45a.png)  
 # Išvados  
+List konteineris greičiausiai nuskaito duomenis iš failo ir išveda duomenis į "Vargašiukų" ir "Galvočių" failus. Antras, deque konteineris, o lėčiausiai veiksmus atlieka vector konteineris.
 List konteineris greičiausiai nuskaito duomenis iš failo ir išveda duomenis į "Vargašiukų" ir "Galvočių" failus. Antras, deque konteineris, o lėčiausiai veiksmus atlieka vector konteineris.  
