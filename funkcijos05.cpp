@@ -1,4 +1,4 @@
-#include "funkcijos.h"
+#include "funkcija05.h"
 
 using namespace std;
 
@@ -41,9 +41,12 @@ double mediana()
 	}
 	return med;
 }
-void ReadFromFile()
+template <class T>
+void ReadFromFile(T& S)
 {
-	ifstream in("kursiokai.txt");
+	S.clear();
+	n = 0;
+	ifstream in(FileName);
 	string x;
 	int y;
 	try {
@@ -74,11 +77,19 @@ void ReadFromFile()
 				pazymiai.push_back(y);
 			}
 			in >> egz;
+			double kint3 = vidurkis();
+			if (kint3 > 5 || kint3 == 5)
+			{
+				S[i].kintamasis1 = 1;
+			}
+			else if (kint3 < 5)
+			{
+				S[i].kintamasis1 = 0;
+			}
 			S[i].finalVid = vidurkis();
 			S[i].finalMed = mediana();
 			n = i;
 		}
-		n = n + 1;
 		in.close();
 	}
 	catch (int ex3)
@@ -86,23 +97,72 @@ void ReadFromFile()
 		cout << "Duomenu failas nerastas" << endl;
 		exit;
 	}
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = i + 1; j < n; j++)
+}
+template <class T>
+void ReadFromFile1(T& S)
+{
+	Studentas Student;
+	n = 0;
+	ifstream in(FileName);
+	string x;
+	int y;
+	string a, b;
+	try {
+		if (!in)
 		{
-			if (S[i].name > S[j].name)
+			throw 1;
+		}
+		for (int i = 0; i < 100; i++)
+		{
+			in >> x;
+			if (x == "Egz.")
 			{
-				string t1 = S[i].name;
-				S[i].name = S[j].name;
-				S[j].name = t1;
+				sk = i - 2;
+				break;
 			}
 		}
-	}	
+		for (int i = 0; !in.eof(); i++)
+		{
+			///Studentas Student;
+			in >> Student.name;
+			in >> Student.lastname;
+			suma = 0;
+			pazymiai.clear();
+			for (int j = 0; j < sk; j++)
+			{
+				in >> y;
+				suma = suma + y;
+				pazymiai.push_back(y);
+			}
+			in >> egz;
+			double kint3 = vidurkis();
+			if (kint3 > 5 || kint3 == 5)
+			{
+				Student.kintamasis1 = 1;
+			}
+			else if (kint3 < 5)
+			{
+				Student.kintamasis1 = 0;
+			}
+			Student.finalVid = vidurkis();
+			Student.finalMed = mediana();
+			n = i;
+			S.push_back(Student);
+		}
+		in.close();
+	}
+	catch (int ex3)
+	{
+		cout << "Duomenu failas nerastas" << endl;
+		exit;
+	}
 }
-void ZinomasStudentuSK()
+template <class T>
+void ZinomasStudentuSK(T& S)
 {
 	string input1, input2, answer3, answer4, answer5;
 	int number3 = 0;
+	S.clear();
 	for (int i = 0; i < n; i++)
 	{
 		cout << "iveskite studento varda: ";
@@ -132,7 +192,7 @@ void ZinomasStudentuSK()
 					if (check(input3) == false)
 					{
 						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-						ZinomasStudentuSK();
+						ZinomasStudentuSK(S);
 					}
 					suma = suma + input3;
 					pazymiai.push_back(input3);
@@ -146,7 +206,7 @@ void ZinomasStudentuSK()
 					if (check(egz) == false)
 					{
 						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-						ZinomasStudentuSK();
+						ZinomasStudentuSK(S);
 					}
 				}
 				else if (answer5 == no)
@@ -171,7 +231,7 @@ void ZinomasStudentuSK()
 					if (check(enter) == false)
 					{
 						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-						ZinomasStudentuSK();
+						ZinomasStudentuSK(S);
 					}
 					suma = suma + enter;
 					pazymiai.push_back(enter);
@@ -186,7 +246,7 @@ void ZinomasStudentuSK()
 					if (check(egz) == false)
 					{
 						cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-						ZinomasStudentuSK();
+						ZinomasStudentuSK(S);
 					}
 				}
 				else if (answer5 == no)
@@ -223,7 +283,7 @@ void ZinomasStudentuSK()
 				if (check(egz) == false)
 				{
 					cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-					ZinomasStudentuSK();
+					ZinomasStudentuSK(S);
 				}
 			}
 			else if (answer5 == no)
@@ -237,10 +297,12 @@ void ZinomasStudentuSK()
 		}
 	}
 }
-void NezinomasStudentuSK()
+template <class T>
+void NezinomasStudentuSK(T& S)
 {
 	string input1, input2, answer3, answer4, answer5, answer6;
 	int number3 = 0;
+	S.clear();
 	cout << "iveskite studento varda: ";
 	cin >> input1;
 	cout << "iveskite studento pavarde: ";
@@ -268,7 +330,7 @@ void NezinomasStudentuSK()
 				if (check(input3) == false)
 				{
 					cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-					NezinomasStudentuSK();
+					NezinomasStudentuSK(S);
 				}
 				suma = suma + input3;
 				pazymiai.push_back(input3);
@@ -282,7 +344,7 @@ void NezinomasStudentuSK()
 				if (check(egz) == false)
 				{
 					cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-					NezinomasStudentuSK();
+					NezinomasStudentuSK(S);
 				}
 			}
 			else if (answer5 == no)
@@ -307,7 +369,7 @@ void NezinomasStudentuSK()
 				if (check(enter) == false)
 				{
 					cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-					NezinomasStudentuSK();
+					NezinomasStudentuSK(S);
 				}
 				suma = suma + enter;
 				pazymiai.push_back(enter);
@@ -322,7 +384,7 @@ void NezinomasStudentuSK()
 				if (check(egz) == false)
 				{
 					cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-					NezinomasStudentuSK();
+					NezinomasStudentuSK(S);
 				}
 			}
 			else if (answer5 == no)
@@ -359,7 +421,7 @@ void NezinomasStudentuSK()
 			if (check(egz) == false)
 			{
 				cout << "Ivedete netinkama skaiciu, iveskite studento informacija is naujo" << endl;
-				NezinomasStudentuSK();
+				NezinomasStudentuSK(S);
 			}
 		}
 		else if (answer5 == no)
@@ -375,9 +437,10 @@ void NezinomasStudentuSK()
 	cout << "Ar norite prideti dar viena studenta? (t/n): ";
 	cin >> answer6;
 	if (answer6 == yes)
-		NezinomasStudentuSK();
+		NezinomasStudentuSK(S);
 }
-void Print()
+template <class T>
+void Print(T& S)
 {
 	string answer7;
 	cout << "Ar norite su vidurkiu (t) ar su mediana (n) skaiciuoto galutinio balo?: ";
@@ -397,49 +460,39 @@ void Print()
 			cout << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(20) << setfill(' ') << setprecision(3) << S[i].finalMed << endl;
 	}
 }
-void questions()
+void CreateFile()
 {
-	string answer1, answer2;
-	cout << "Namu darbu ir egzamino pazymiai turi priklausyti intervalui [1;10]" << endl;
-	cout << "Ar norite patys irasyti duomenis (t), ar norite, kad jie butu paimti is failo? (n): ";
-	cin >> answer1;
-	if (answer1 == yes)
+	string v = "Vardas";
+	string p = "Pavarde";
+	string nd = "ND";
+	string e = "Egz.";
+	n = 0;
+	cout << "iveskite kiek bus studentu: ";
+	cin >> n;
+	cout << "iveskite kiek bus namu darbu pazymiu: ";
+	cin >> sk;
+	auto start = chrono::steady_clock::now();
+	string file;
+	file = "kursiokai" + to_string(n);
+	file += ".txt";
+	FileName = file;
+	ofstream out(file);
+	out << left << setw(20) << v << setw(20) << p;
+	for (int i = 1; i < sk + 1; i++)
 	{
-		cout << "Ar zinote kiek bus studentu? (t/n): ";
-		cin >> answer2;
-		if (answer2 == yes)
-		{
-			cout << "iveskite kiek bus studentu: ";
-			cin >> n;
-			try
-			{
-				if (n <= 0)
-				{
-					throw 1;
-				}
-			ZinomasStudentuSK();
-			Print();
-			}
-			catch (int ex1)
-			{
-				cout << "Ivedete netinkama studentu skaiciu (skaicius > 0), pabandykite is naujo " << endl;
-				questions();
-			}
-		}
-		else if (answer2 == no)
-		{
-			NezinomasStudentuSK();
-			Print();
-		}
+		out << setw(7) << nd + to_string(i);
 	}
-	else if (answer1 == no)
+	out << setw(7) << e << endl;
+	srand(time(NULL));
+	for (int i = 1; i < n + 1; i++)
 	{
-		ReadFromFile();
-		ofstream fr("rez.txt");
-		fr << "Vardas" << setw(20) << setfill(' ') << "Pavarde" << setw(30) << setfill(' ') << "Galutinis (vid)" << setw(20) << setfill(' ') << "Galutinis (med)" << endl;
-		fr << "_____________________________________________________________________________" << endl;
-		for (int i = 0; i < n; i++)
-			fr << S[i].name << setw(20) << setfill(' ') << S[i].lastname << setw(30) << setfill(' ') << setprecision(3) << S[i].finalVid << setw(20) << setfill(' ') << setprecision(3) << S[i].finalMed << endl;
-		fr.close();
+		out << left << setw(20) << "Vardas" + to_string(i) << setw(20) << "Pavarde" + to_string(i);
+		for (int j = 0; j < sk; j++)
+		{
+			out << setw(7) << rand() % 10 + 1;
+		}
+		out << setw(7) << rand() % 10 + 1 << endl;
 	}
+	cout << "Sugeneruoti faila su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() << " ms" << endl;
+	out.close();
 }
