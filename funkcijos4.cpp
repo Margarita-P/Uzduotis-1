@@ -495,11 +495,10 @@ void questions()
 			galvotukai += ".txt";
 			ofstream out4(galvotukai);
 			ofstream out5(vargsiukai);
-			auto start1 = chrono::steady_clock::now();
+			auto start = chrono::steady_clock::now();
 			ReadFromFile();
-			cout << "Nuskaityti faila su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start1).count() << " ms" << endl;
-			auto start2 = chrono::steady_clock::now();
-			auto start3 = chrono::steady_clock::now();
+			cout << "Nuskaityti faila su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() << " ms" << endl;
+			auto start1 = chrono::steady_clock::now();
 			for (int j = 0; j < n; j++)
 			{
 				if (S[j].kintamasis1 == 1)
@@ -513,8 +512,8 @@ void questions()
 			}
 			out4.close();
 			out5.close();
-			cout << "Atskirti studentus i Galvotukus ir Vargsiukus uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start2).count() << " ms" << endl;
-			cout << "Sukurti Galvotukai.txt ir Vargsiukai.txt failus is " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start2).count() << " ms" << endl;
+			cout << "Atskirti studentus i Galvotukus ir Vargsiukus uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start1).count() << " ms" << endl;
+			cout << "Sukurti Galvotukai.txt ir Vargsiukai.txt failus is " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start1).count() << " ms" << endl;
 		}
 	}
 }
