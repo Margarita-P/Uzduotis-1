@@ -33,3 +33,13 @@ string ka = "k";
 double number;
 double number5 = 0;
 string FileName;
+
+bool check(double number);
+double vidurkis();
+double mediana();
+void ReadFromFile();
+void ZinomasStudentuSK();
+void NezinomasStudentuSK();
+void Print();
+void CreateFile();
+void questions();
