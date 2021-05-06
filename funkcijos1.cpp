@@ -1,4 +1,4 @@
-#include "funkcija1.h"
+#include "funkcija4.h"
 
 using namespace std;
 
@@ -471,7 +471,7 @@ void CreateFile()
 	cin >> n;
 	cout << "iveskite kiek bus namu darbu pazymiu: ";
 	cin >> sk;
-	auto start = chrono::steady_clock::now();
+	//auto start = chrono::steady_clock::now();
 	string file;
 	file = "kursiokai" + to_string(n);
 	file += ".txt";
@@ -493,6 +493,70 @@ void CreateFile()
 		}
 		out << setw(7) << rand() % 10 + 1 << endl;
 	}
-	cout << "Sugeneruoti faila su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() << " ms" << endl;
+	//cout << "Sugeneruoti faila su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() << " ms" << endl;
 	out.close();
+}
+template <class T>
+void Strategija1(T& S, T& G, T& V)
+{
+	n1 = 0;
+	n2 = 0;
+	G.clear();
+	V.clear();
+	auto start = chrono::steady_clock::now();
+	copy_if(S.begin(), S.end(), back_inserter(G), [](Studentas const& a) {return a.finalVid >= 5;});
+	copy_if(S.begin(), S.end(), back_inserter(V), [](Studentas const& a) {return a.finalVid < 5;});
+	cout << "Sugrupiuoti studentus i 'Galvotukus' ir 'Vargsiukus', faile su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() << " ms" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		if (S[i].kintamasis1 == 1) n1++;
+		else if (S[i].kintamasis1 == 0) n2++;
+	}
+}
+template <class T>
+void Strategija11(T& S, T& G, T& V)
+{
+	Studentas Student;
+	n1 = 0;
+	n2 = 0;
+	G.clear();
+	V.clear();
+	auto start = chrono::steady_clock::now();
+	copy_if(S.begin(), S.end(), back_inserter(G), [](Studentas const& a) {return a.kintamasis1 == 1;});
+	copy_if(S.begin(), S.end(), back_inserter(V), [](Studentas const& a) {return a.kintamasis1 == 0;});
+	cout << "Sugrupiuoti studentus i 'Galvotukus' ir 'Vargsiukus', faile su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() << " ms" << endl;
+}
+template <class T>
+void Strategija2(T& S, T& V)
+{
+	n1 = 0;
+	n2 = 0;
+	V.clear();
+	for (int i = 0; i < n; i++)
+	{
+		if (S[i].kintamasis1 == 1) n1++;
+		else if (S[i].kintamasis1 == 0) n2++;
+	}
+	auto start = chrono::steady_clock::now();
+	for (int i = 0; i < n; i++)
+	{
+		copy_if(S.begin(), S.end(), back_inserter(V), [](Studentas const& a) {return a.finalVid < 5;} );
+		remove_if(S.begin(), S.end(), [](Studentas const& b) {return b.finalVid < 5;} );
+	}
+	cout << "Sugrupiuoti studentus i 'Galvotukus' ir 'Vargsiukus', faile su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() << " ms" << endl;
+}
+template <class T>
+void Strategija22(T& S, T& V)
+{
+	Studentas Student;
+	n1 = 0;
+	n2 = 0;
+	V.clear();
+	auto start = chrono::steady_clock::now();
+	for (int i = 0; i < n; i++)
+	{
+		copy_if(S.begin(), S.end(), back_inserter(V), [](Studentas const& a) {return a.finalVid < 5;});
+		remove_if(S.begin(), S.end(), [](Studentas const& b) {return b.finalVid < 5;});
+	}
+	cout << "Sugrupiuoti studentus i 'Galvotukus' ir 'Vargsiukus', faile su " << n << " stulpeliu uztruko: " << chrono::duration_cast<chrono::milliseconds>(chrono::steady_clock::now() - start).count() << " ms" << endl;
 }
