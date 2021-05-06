@@ -34,6 +34,7 @@ double number = 0;
 double number5 = 0;
 string FileName;
 vector <double> pazymiai;
+int n1 = 0, n2 = 0;
 
 bool check(double number);
 double vidurkis();
@@ -50,3 +51,11 @@ void NezinomasStudentuSK(T& S);
 template <class T>
 void Print(T& S);
 void CreateFile();
+template <class T>
+void Strategija1(T& S, T& G, T& V);
+template <class T>
+void Strategija2(T& S, T& V);
+template <class T>
+void Strategija11(T& S, T& G, T& V);
+template <class T>
+void Strategija22(T& S, T& V);
