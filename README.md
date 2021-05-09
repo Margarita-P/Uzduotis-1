@@ -55,6 +55,11 @@ Su šiomis strategijomis bei strategija, kuri buvo naudojama praeitose versijose
 Naudojami buvo tie patys 5 failai kaip versijoje 0.5. 
 Spartos analizė buvo daroma su vector, list ir deque konteineriais.    
 ### Strategija 1  
-![image](https://user-images.githubusercontent.com/79039786/117584057-48466500-b113-11eb-97ac-8c8f798c4c3f.png)
+![image](https://user-images.githubusercontent.com/79039786/117584057-48466500-b113-11eb-97ac-8c8f798c4c3f.png)  
+### Strategija 2  
+![image](https://user-images.githubusercontent.com/79039786/117584153-e76b5c80-b113-11eb-9cd6-64a2574c5197.png)  
+### Strategija 3  
+![image](https://user-images.githubusercontent.com/79039786/117584161-f6520f00-b113-11eb-98fc-d952d749f075.png)
+
 
 
