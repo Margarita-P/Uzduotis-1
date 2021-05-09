@@ -53,7 +53,8 @@ Strategija 2: Bendro studentai konteinerio skaidymas į vieną naują konteiner�
 ## Spartos Analizė  
 Su šiomis strategijomis bei strategija, kuri buvo naudojama praeitose versijose buvo testuojama programos sparta sugrupuoti studentus. 
 Naudojami buvo tie patys 5 failai kaip versijoje 0.5. 
-Spartos analizė buvo daroma su vector, list ir deque konteineriais.    
+Spartos analizė buvo daroma su vector, list ir deque konteineriais.  
+- reiškia, kad nepavyko apskaičiuoti, per daug ilgai užtruko.  
 ### Strategija 1  
 ![image](https://user-images.githubusercontent.com/79039786/117584057-48466500-b113-11eb-97ac-8c8f798c4c3f.png)  
 ### Strategija 2  
