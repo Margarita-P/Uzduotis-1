@@ -32,7 +32,7 @@ Versija 0.5 yra versijos 0.4 patobulinimas, kad veiktų programa su skirtingais 
 Vartotojas, paleidęs programą, turi pasirinkti, kurį konteinerį naudos (vector - 1, list - 2, deque - 3).  
 ## Spartos Analizė  
 Buvo tikrinama sparta su trim skirtingais konteineriais - vector, list ir deque.  
-Tikrinimui buvo naudojami tie patys į failai: 100 studentų, 1000 studentų, 10000 studentų, 100000 studentų, 1000000 studentų (visi failai turėjo 9 namų darbus).   
+Tikrinimui buvo naudojami tie patys 5 failai: 100 studentų, 1000 studentų, 10000 studentų, 100000 studentų, 1000000 studentų (visi failai turėjo 9 namų darbus).   
 ### Kompiuterio parametrai:  
 CPU - intel core i7  
 RAM - 16GB  
@@ -45,3 +45,14 @@ HDD - 469 GB
 # Išvados  
 List konteineris greičiausiai nuskaito duomenis iš failo ir išveda duomenis į "Vargašiukų" ir "Galvočių" failus. Antras, deque konteineris, o lėčiausiai veiksmus atlieka vector konteineris.
 List konteineris greičiausiai nuskaito duomenis iš failo ir išveda duomenis į "Vargašiukų" ir "Galvočių" failus. Antras, deque konteineris, o lėčiausiai veiksmus atlieka vector konteineris.  
+# Versija-1.0  
+Versija-1.0 - Versijos.0.5 patobulinimas.   
+Buvo pridėtos dvi strategijos studentų grupavimui į "Vargšiukus" ir "Galvotukus".    
+Strategija 1: Bendro studentai konteinerio skaidymas į du naujus konteinerius "V" ir "G".  
+Strategija 2: Bendro studentai konteinerio skaidymas į vieną naują konteinerį "V" ir tų duomenų ištrinimas iš bendro studentai konteinerio.  
+## Spartos Analizė  
+Su šiomis strategijomis bei strategija, kuri buvo naudojama praeitose versijose buvo testuojama programos sparta sugrupuoti studentus. 
+Naudojami buvo tie patys 5 failai kaip versijoje 0.5. 
+Spartos analizė buvo daroma su vector, list ir deque konteineriais.  
+
+
